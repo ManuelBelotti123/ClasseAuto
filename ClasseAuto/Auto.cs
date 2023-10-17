@@ -67,168 +67,228 @@ namespace ClasseAuto
             return c;
         }
 
-        public bool AcceleraDecelera(double v, bool ad)
+        public int Accelera(double v)
+        {
+            int c = 0;
+            double vel = Velocita + v;
+            switch (Marcia)
+            {
+                case 1:
+                    if (vel >= 0 && vel <= 20)
+                    {
+                        Velocita += v;
+                    }
+                    else
+                    {
+                        c = 2;
+                    }
+                    break;
+                case 2:
+                    if (vel >= 20 && vel <= 40)
+                    {
+                        Velocita += v; ;
+                    }
+                    else if (vel < 20)
+                    {
+                        c = 1; //scala marcia
+                    }
+                    else
+                    {
+                        c = 2;//aumenta marcia
+                    }
+                    break;
+                case 3:
+                    if (vel >= 40 && vel <= 60)
+                    {
+                        Velocita += v;
+                    }
+                    else if (vel < 40)
+                    {
+                        c = 1; //scala marcia
+                    }
+                    else
+                    {
+                        c = 2;//aumenta marcia
+                    }
+                    break;
+                case 4:
+                    if (vel >= 60 && vel <= 80)
+                    {
+                        Velocita += v;
+                    }
+                    else if (vel < 40)
+                    {
+                        c = 1; //scala marcia
+                    }
+                    else
+                    {
+                        c = 2;//aumenta marcia
+                    }
+                    break;
+                case 5:
+                    if (vel >= 80 && vel <= 100)
+                    {
+                        Velocita += v;
+                    }
+                    else if (vel < 40)
+                    {
+                        c = 1; //scala marcia
+                    }
+                    else
+                    {
+                        c = 2;//aumenta marcia
+                    }
+                    break;
+                case 6:
+                    if (vel >= 100 && vel <= 140)
+                    {
+                        Velocita += v;
+                    }
+                    else if (vel < 40)
+                    {
+                        c = 1; //scala marcia
+                    }
+                    else
+                    {
+                        c = 2;//aumenta marcia
+                    }
+                    break;
+                case 7:
+                    if (vel >= 140 && vel <= 160)
+                    {
+                        Velocita += v;
+                    }
+                    else if (vel < 40)
+                    {
+                        c = 1; //scala marcia
+                    }
+                    else
+                    {
+                        c = 2;//aumenta marcia
+                    }
+                    break;
+                case 8:
+                    if (vel >= 180)
+                    {
+                        Velocita += v;
+                    }
+                    else
+                    {
+                        c = 1;
+                    }
+                    break;
+                case 0:
+                    c = 3;
+                    break;
+            }
+            return c;
+        }
+
+        public bool Decelera(double v)
         {
             bool c = true;
-            double vel = Velocita + v;
-            if (Velocita < v && !ad)
+            double vel = Velocita - v;
+            switch (Marcia)
             {
-                c = false;
-            }
-            else
-            {
-                switch (Marcia)
-                {
-                    case 1:
-                        if (vel < 0 || vel > 20)
-                        {
-                            c = false;
-                        }
-                        else
-                        {
-                            if (ad)
-                            {
-                                Velocita += v;
-                            }
-                            else
-                            {
-                                Velocita -= v;
-                            }
-                        }
-                        break;
-                    case 2:
-                        if (vel < 20 || vel > 40)
-                        {
-                            c = false;
-                        }
-                        else
-                        {
-                            if (ad)
-                            {
-                                Velocita += v;
-                            }
-                            else
-                            {
-                                Velocita -= v;
-                            }
-                        }
-                        break;
-                    case 3:
-                        if (vel < 40 || vel > 60)
-                        {
-                            c = false;
-                        }
-                        else
-                        {
-                            if (ad)
-                            {
-                                Velocita += v;
-                            }
-                            else
-                            {
-                                Velocita -= v;
-                            }
-                        }
-                        break;
-                    case 4:
-                        if (vel < 60 || vel > 80)
-                        {
-                            c = false;
-                        }
-                        else
-                        {
-                            if (ad)
-                            {
-                                Velocita += v;
-                            }
-                            else
-                            {
-                                Velocita -= v;
-                            }
-                        }
-                        break;
-                    case 5:
-                        if (vel < 80 || vel > 100)
-                        {
-                            c = false;
-                        }
-                        else
-                        {
-                            if (ad)
-                            {
-                                Velocita += v;
-                            }
-                            else
-                            {
-                                Velocita -= v;
-                            }
-                        }
-                        break;
-                    case 6:
-                        if (vel < 100 || vel > 140)
-                        {
-                            c = false;
-                        }
-                        else
-                        {
-                            if (ad)
-                            {
-                                Velocita += v;
-                            }
-                            else
-                            {
-                                Velocita -= v;
-                            }
-                        }
-                        break;
-                    case 7:
-                        if (vel < 140 || vel > 180)
-                        {
-                            c = false;
-                        }
-                        else
-                        {
-                            if (ad)
-                            {
-                                Velocita += v;
-                            }
-                            else
-                            {
-                                Velocita -= v;
-                            }
-                        }
-                        break;
-                    case 8:
-                        if (vel < 180)
-                        {
-                            c = false;
-                        }
-                        else
-                        {
-                            if (ad)
-                            {
-                                Velocita += v;
-                            }
-                            else
-                            {
-                                Velocita -= v;
-                            }
-                        }
-                        break;
-                }
+                case 1:
+                    if (vel >= 0 && vel <= 20)
+                    {
+                        Velocita -= v;
+                    }
+                    else
+                    {
+                        c = false;
+                    }
+                    break;
+                case 2:
+                    if (vel >= 20 && vel <= 40)
+                    {
+                        Velocita -= v; ;
+                    }
+                    else
+                    {
+                        c = false;
+                    }
+                    break;
+                case 3:
+                    if (vel >= 41 && vel <= 60)
+                    {
+                        Velocita -= v;
+                    }
+                    else
+                    {
+                        c = false;
+                    }
+                    break;
+                case 4:
+                    if (vel >= 61 && vel <= 80)
+                    {
+                        Velocita -= v;
+                    }
+                    else
+                    {
+                        c = false;
+                    }
+                    break;
+                case 5:
+                    if (vel >= 81 && vel <= 100)
+                    {
+                        Velocita -= v;
+                    }
+                    else
+                    {
+                        c = false;
+                    }
+                    break;
+                case 6:
+                    if (vel >= 101 && vel <= 140)
+                    {
+                        Velocita -= v;
+                    }
+                    else
+                    {
+                        c = false;
+                    }
+                    break;
+                case 7:
+                    if (vel >= 141 && vel <= 160)
+                    {
+                        Velocita -= v;
+                    }
+                    else
+                    {
+                        c = false;
+                    }
+                    break;
+                case 8:
+                    if (vel >= 181)
+                    {
+                        Velocita -= v;
+                    }
+                    else
+                    {
+                        c = false;
+                    }
+                    break;
+                case 0:
+                    c = false;
+                    break;
             }
             return c;
         }
 
         public void MarciaPM(bool m)
-        { 
-            if (m)
+        {
+            if (Marcia < 8)
             {
-                Marcia++;
-            }
-            else
-            {
-                Marcia--;
+                if (m)
+                {
+                    Marcia++;
+                }
+                else
+                {
+                    Marcia--;
+                }
             }
         }
     }

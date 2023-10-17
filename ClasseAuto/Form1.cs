@@ -50,10 +50,18 @@ namespace ClasseAuto
         {
             if (auto.Motore)
             {
-                bool a = auto.AcceleraDecelera(double.Parse(vel.Text), true);
-                if (!a)
+                int a = auto.Accelera(double.Parse(vel.Text));
+                if (a == 3)
                 {
-                    MessageBox.Show("Aumenta marcia e riprova", "Avviso", MessageBoxButtons.OK);
+                    MessageBox.Show("La marcia è in folle. Riprova", "Avviso", MessageBoxButtons.OK);
+                }
+                else if (a == 2)
+                {
+                    MessageBox.Show("Aumenta la marcia e riprova", "Avviso", MessageBoxButtons.OK);
+                }
+                else if (a == 1)
+                {
+                    MessageBox.Show("Scala la marcia e riprova", "Avviso", MessageBoxButtons.OK);
                 }
                 else
                 {
@@ -64,12 +72,27 @@ namespace ClasseAuto
 
         private void velocitam_Click(object sender, EventArgs e)
         {
+            bool a = true;
             if (auto.Motore)
             {
-                bool a = auto.AcceleraDecelera(double.Parse(vel.Text), false);
+                if (auto.Velocita >= double.Parse(vel.Text))
+                {
+                    a = auto.Decelera(double.Parse(vel.Text));
+                }
+                else 
+                {
+                    MessageBox.Show("Impossibile decelerare, valore troppo grande.", "Avviso", MessageBoxButtons.OK);
+                }
                 if (!a)
                 {
-                    MessageBox.Show("Scala marcia e riprova", "Avviso", MessageBoxButtons.OK);
+                    if (auto.Marcia == 0)
+                    {
+                        MessageBox.Show("La marcia è in folle. Riprova", "Avviso", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Scala la marcia e riprova", "Avviso", MessageBoxButtons.OK);
+                    }
                 }
                 else
                 {
