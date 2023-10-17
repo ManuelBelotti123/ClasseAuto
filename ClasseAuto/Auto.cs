@@ -28,7 +28,17 @@ namespace ClasseAuto
         public int Marcia
         {
             get { return _marcia; }
-            set { _marcia = value; }
+            set
+            {
+                if (value < 0 || value > 8)
+                {
+                    _marcia = 0;
+                }
+                else
+                {
+                    _marcia = value;
+                }
+            }
         }
 
         //costruttori
@@ -184,9 +194,9 @@ namespace ClasseAuto
             return c;
         }
 
-        public bool Decelera(double v)
+        public int Decelera(double v)
         {
-            bool c = true;
+            int c = 0;
             double vel = Velocita - v;
             switch (Marcia)
             {
@@ -195,9 +205,13 @@ namespace ClasseAuto
                     {
                         Velocita -= v;
                     }
+                    else if (vel < 0)
+                    {
+                        c = 4;
+                    }
                     else
                     {
-                        c = false;
+                        c = 2;
                     }
                     break;
                 case 2:
@@ -205,73 +219,97 @@ namespace ClasseAuto
                     {
                         Velocita -= v; ;
                     }
+                    else if (vel < 20)
+                    {
+                        c = 1; //scala marcia
+                    }
                     else
                     {
-                        c = false;
+                        c = 2;//aumenta marcia
                     }
                     break;
                 case 3:
-                    if (vel >= 41 && vel <= 60)
+                    if (vel >= 40 && vel <= 60)
                     {
                         Velocita -= v;
                     }
+                    else if (vel < 40)
+                    {
+                        c = 1; //scala marcia
+                    }
                     else
                     {
-                        c = false;
+                        c = 2;//aumenta marcia
                     }
                     break;
                 case 4:
-                    if (vel >= 61 && vel <= 80)
+                    if (vel >= 60 && vel <= 80)
                     {
                         Velocita -= v;
                     }
+                    else if (vel < 40)
+                    {
+                        c = 1; //scala marcia
+                    }
                     else
                     {
-                        c = false;
+                        c = 2;//aumenta marcia
                     }
                     break;
                 case 5:
-                    if (vel >= 81 && vel <= 100)
+                    if (vel >= 80 && vel <= 100)
                     {
                         Velocita -= v;
                     }
+                    else if (vel < 40)
+                    {
+                        c = 1; //scala marcia
+                    }
                     else
                     {
-                        c = false;
+                        c = 2;//aumenta marcia
                     }
                     break;
                 case 6:
-                    if (vel >= 101 && vel <= 140)
+                    if (vel >= 100 && vel <= 140)
                     {
                         Velocita -= v;
                     }
+                    else if (vel < 40)
+                    {
+                        c = 1; //scala marcia
+                    }
                     else
                     {
-                        c = false;
+                        c = 2;//aumenta marcia
                     }
                     break;
                 case 7:
-                    if (vel >= 141 && vel <= 160)
+                    if (vel >= 140 && vel <= 160)
                     {
                         Velocita -= v;
                     }
+                    else if (vel < 40)
+                    {
+                        c = 1; //scala marcia
+                    }
                     else
                     {
-                        c = false;
+                        c = 2;//aumenta marcia
                     }
                     break;
                 case 8:
-                    if (vel >= 181)
+                    if (vel >= 180)
                     {
                         Velocita -= v;
                     }
                     else
                     {
-                        c = false;
+                        c = 1;
                     }
                     break;
                 case 0:
-                    c = false;
+                    c = 3;
                     break;
             }
             return c;
@@ -279,13 +317,16 @@ namespace ClasseAuto
 
         public void MarciaPM(bool m)
         {
-            if (Marcia < 8)
+            if (m)
             {
-                if (m)
+                if (Marcia != 8)
                 {
                     Marcia++;
                 }
-                else
+            }
+            else
+            {
+                if (Marcia != 0)
                 {
                     Marcia--;
                 }

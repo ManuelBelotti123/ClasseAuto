@@ -72,27 +72,24 @@ namespace ClasseAuto
 
         private void velocitam_Click(object sender, EventArgs e)
         {
-            bool a = true;
             if (auto.Motore)
             {
-                if (auto.Velocita >= double.Parse(vel.Text))
+                int a = auto.Decelera(double.Parse(vel.Text));
+                if (a == 4)
                 {
-                    a = auto.Decelera(double.Parse(vel.Text));
+                    MessageBox.Show("Impossibile decelerare sotto zero. Riprova", "Avviso", MessageBoxButtons.OK);
                 }
-                else 
+                if (a == 3)
                 {
-                    MessageBox.Show("Impossibile decelerare, valore troppo grande.", "Avviso", MessageBoxButtons.OK);
+                    MessageBox.Show("La marcia è in folle. Riprova", "Avviso", MessageBoxButtons.OK);
                 }
-                if (!a)
+                else if (a == 2)
                 {
-                    if (auto.Marcia == 0)
-                    {
-                        MessageBox.Show("La marcia è in folle. Riprova", "Avviso", MessageBoxButtons.OK);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Scala la marcia e riprova", "Avviso", MessageBoxButtons.OK);
-                    }
+                    MessageBox.Show("Aumenta la marcia e riprova", "Avviso", MessageBoxButtons.OK);
+                }
+                else if (a == 1)
+                {
+                    MessageBox.Show("Scala la marcia e riprova", "Avviso", MessageBoxButtons.OK);
                 }
                 else
                 {
