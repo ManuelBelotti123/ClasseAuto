@@ -67,13 +67,157 @@ namespace ClasseAuto
             }
         }
 
-        public void AcceleraDecelera(double v, bool ad)
+        public bool AcceleraDecelera(double v, bool ad)
         {
+            bool c = true;
             double vel = Velocita + v;
-            switch (Marcia)
+            if (Velocita < v && !ad)
             {
-
+                c = false;
             }
+            else
+            {
+                switch (Marcia)
+                {
+                    case 1:
+                        if (vel <= 0 || vel >= 20)
+                        {
+                            c = false;
+                        }
+                        else
+                        {
+                            if (ad)
+                            {
+                                Velocita += v;
+                            }
+                            else
+                            {
+                                Velocita -= v;
+                            }
+                        }
+                        break;
+                    case 2:
+                        if (vel <= 0 || vel >= 20)
+                        {
+                            c = false;
+                        }
+                        else
+                        {
+                            if (ad)
+                            {
+                                Velocita += v;
+                            }
+                            else
+                            {
+                                Velocita -= v;
+                            }
+                        }
+                        break;
+                    case 3:
+                        if (vel <= 0 || vel >= 20)
+                        {
+                            c = false;
+                        }
+                        else
+                        {
+                            if (ad)
+                            {
+                                Velocita += v;
+                            }
+                            else
+                            {
+                                Velocita -= v;
+                            }
+                        }
+                        break;
+                    case 4:
+                        if (vel <= 0 || vel >= 20)
+                        {
+                            c = false;
+                        }
+                        else
+                        {
+                            if (ad)
+                            {
+                                Velocita += v;
+                            }
+                            else
+                            {
+                                Velocita -= v;
+                            }
+                        }
+                        break;
+                    case 5:
+                        if (vel <= 0 || vel >= 20)
+                        {
+                            c = false;
+                        }
+                        else
+                        {
+                            if (ad)
+                            {
+                                Velocita += v;
+                            }
+                            else
+                            {
+                                Velocita -= v;
+                            }
+                        }
+                        break;
+                    case 6:
+                        if (vel <= 0 || vel >= 20)
+                        {
+                            c = false;
+                        }
+                        else
+                        {
+                            if (ad)
+                            {
+                                Velocita += v;
+                            }
+                            else
+                            {
+                                Velocita -= v;
+                            }
+                        }
+                        break;
+                    case 7:
+                        if (vel <= 0 || vel >= 20)
+                        {
+                            c = false;
+                        }
+                        else
+                        {
+                            if (ad)
+                            {
+                                Velocita += v;
+                            }
+                            else
+                            {
+                                Velocita -= v;
+                            }
+                        }
+                        break;
+                    case 8:
+                        if (vel <= 0 || vel >= 20)
+                        {
+                            c = false;
+                        }
+                        else
+                        {
+                            if (ad)
+                            {
+                                Velocita += v;
+                            }
+                            else
+                            {
+                                Velocita -= v;
+                            }
+                        }
+                        break;
+                }
+            }
+            return c;
         }
     }
 }
