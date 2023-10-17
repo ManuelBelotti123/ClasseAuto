@@ -46,25 +46,25 @@ namespace ClasseAuto
         }
 
         //metodi
-        public int AccendeSpegne(bool a)
+        public bool AccendeSpegne(bool a)
         {
+            bool c = true;
             if (a)
             {
                 Motore = true;
-                return 0;
             }
             else
             {
                 if (Velocita == 0 && Marcia == 0)
                 {
                     Motore = false;
-                    return 0;
                 }
                 else
                 {
-                    return 1;
+                    c = false;
                 }
             }
+            return c;
         }
 
         public bool AcceleraDecelera(double v, bool ad)
