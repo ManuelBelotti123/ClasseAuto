@@ -80,7 +80,7 @@ namespace ClasseAuto
                 switch (Marcia)
                 {
                     case 1:
-                        if (vel <= 0 || vel >= 20)
+                        if (vel < 0 || vel > 20)
                         {
                             c = false;
                         }
@@ -97,7 +97,7 @@ namespace ClasseAuto
                         }
                         break;
                     case 2:
-                        if (vel <= 0 || vel >= 20)
+                        if (vel < 20 || vel > 40)
                         {
                             c = false;
                         }
@@ -114,7 +114,7 @@ namespace ClasseAuto
                         }
                         break;
                     case 3:
-                        if (vel <= 0 || vel >= 20)
+                        if (vel < 40 || vel > 60)
                         {
                             c = false;
                         }
@@ -131,7 +131,7 @@ namespace ClasseAuto
                         }
                         break;
                     case 4:
-                        if (vel <= 0 || vel >= 20)
+                        if (vel < 60 || vel > 80)
                         {
                             c = false;
                         }
@@ -148,7 +148,7 @@ namespace ClasseAuto
                         }
                         break;
                     case 5:
-                        if (vel <= 0 || vel >= 20)
+                        if (vel < 80 || vel > 100)
                         {
                             c = false;
                         }
@@ -165,7 +165,7 @@ namespace ClasseAuto
                         }
                         break;
                     case 6:
-                        if (vel <= 0 || vel >= 20)
+                        if (vel < 100 || vel > 140)
                         {
                             c = false;
                         }
@@ -182,7 +182,7 @@ namespace ClasseAuto
                         }
                         break;
                     case 7:
-                        if (vel <= 0 || vel >= 20)
+                        if (vel < 140 || vel > 180)
                         {
                             c = false;
                         }
@@ -199,7 +199,7 @@ namespace ClasseAuto
                         }
                         break;
                     case 8:
-                        if (vel <= 0 || vel >= 20)
+                        if (vel < 180)
                         {
                             c = false;
                         }
@@ -218,6 +218,18 @@ namespace ClasseAuto
                 }
             }
             return c;
+        }
+
+        public void MarciaPM(bool m)
+        { 
+            if (m)
+            {
+                Marcia++;
+            }
+            else
+            {
+                Marcia--;
+            }
         }
     }
 }
