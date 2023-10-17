@@ -67,8 +67,26 @@ namespace ClasseAuto
             }
         }
 
+        public void AcceleraDecelera(double v, bool ad)
+        {
+            double vel = Velocita + v;
+            switch (Marcia)
+            {
 
-
-
+            }
+        }
     }
 }
+
+/*
+ tabella marcie
+folle -> zero
+1 -> 0 - 20 kmh
+2 -> 20 - 40 kmh
+3 -> 40 - 60 kmh
+4 -> 60 - 80 kmh
+5 -> 80 - 100 kmh
+6 -> 100 - 140 kmh
+7 -> 140 - 180 kmh
+8 -> 180 e superiore kmh
+*/
