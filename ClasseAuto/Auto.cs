@@ -46,6 +46,28 @@ namespace ClasseAuto
         }
 
         //metodi
+        public int AccendeSpegne(bool a)
+        {
+            if (a)
+            {
+                Motore = true;
+                return 0;
+            }
+            else
+            {
+                if (Velocita == 0 && Marcia == 0)
+                {
+                    Motore = false;
+                    return 0;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+        }
+
+
 
 
     }
