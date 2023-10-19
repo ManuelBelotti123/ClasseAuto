@@ -37,6 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.velres = new System.Windows.Forms.TextBox();
             this.marres = new System.Windows.Forms.TextBox();
+            this.manuale = new System.Windows.Forms.Button();
+            this.automatico = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // motoreb
@@ -78,7 +80,7 @@
             // 
             // aummarcia
             // 
-            this.aummarcia.Location = new System.Drawing.Point(606, 175);
+            this.aummarcia.Location = new System.Drawing.Point(606, 230);
             this.aummarcia.Name = "aummarcia";
             this.aummarcia.Size = new System.Drawing.Size(75, 23);
             this.aummarcia.TabIndex = 4;
@@ -88,7 +90,7 @@
             // 
             // scalamar
             // 
-            this.scalamar.Location = new System.Drawing.Point(606, 205);
+            this.scalamar.Location = new System.Drawing.Point(606, 260);
             this.scalamar.Name = "scalamar";
             this.scalamar.Size = new System.Drawing.Size(75, 23);
             this.scalamar.TabIndex = 5;
@@ -107,7 +109,7 @@
             // 
             // velres
             // 
-            this.velres.Location = new System.Drawing.Point(326, 257);
+            this.velres.Location = new System.Drawing.Point(326, 230);
             this.velres.Multiline = true;
             this.velres.Name = "velres";
             this.velres.Size = new System.Drawing.Size(129, 59);
@@ -115,17 +117,39 @@
             // 
             // marres
             // 
-            this.marres.Location = new System.Drawing.Point(593, 257);
+            this.marres.Location = new System.Drawing.Point(593, 175);
             this.marres.Multiline = true;
             this.marres.Name = "marres";
             this.marres.Size = new System.Drawing.Size(100, 49);
             this.marres.TabIndex = 8;
+            // 
+            // manuale
+            // 
+            this.manuale.Location = new System.Drawing.Point(312, 77);
+            this.manuale.Name = "manuale";
+            this.manuale.Size = new System.Drawing.Size(75, 23);
+            this.manuale.TabIndex = 9;
+            this.manuale.Text = "MANUALE";
+            this.manuale.UseVisualStyleBackColor = true;
+            this.manuale.Click += new System.EventHandler(this.manuale_Click);
+            // 
+            // automatico
+            // 
+            this.automatico.Location = new System.Drawing.Point(394, 76);
+            this.automatico.Name = "automatico";
+            this.automatico.Size = new System.Drawing.Size(75, 23);
+            this.automatico.TabIndex = 10;
+            this.automatico.Text = "AUTOMATICO";
+            this.automatico.UseVisualStyleBackColor = true;
+            this.automatico.Click += new System.EventHandler(this.automatico_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.automatico);
+            this.Controls.Add(this.manuale);
             this.Controls.Add(this.marres);
             this.Controls.Add(this.velres);
             this.Controls.Add(this.label1);
@@ -154,6 +178,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox velres;
         private System.Windows.Forms.TextBox marres;
+        private System.Windows.Forms.Button manuale;
+        private System.Windows.Forms.Button automatico;
     }
 }
 

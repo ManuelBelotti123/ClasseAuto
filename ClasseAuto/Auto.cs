@@ -192,7 +192,7 @@ namespace ClasseAuto
             return c;
         }
 
-        public int Decelera(double v)
+        public virtual int Decelera(double v)
         {
             int c = 0;
             double vel = Velocita - v;
