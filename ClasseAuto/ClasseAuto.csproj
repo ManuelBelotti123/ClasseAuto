@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auto.cs" />
+    <Compile Include="AutoAut.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

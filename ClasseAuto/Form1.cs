@@ -28,16 +28,17 @@ namespace ClasseAuto
 
         private void motoreb_Click(object sender, EventArgs e)
         {
-            bool a = auto.AccendeSpegne(!auto.Motore);
-            if (!a)
+            if (auto.Motore)
             {
-                MessageBox.Show("Portare velocità a zero e marcia in folle prima di spegnere.", "Avviso", MessageBoxButtons.OK);
+                auto.Accende();
+                MessageBox.Show("Motore Acceso", "Avviso", MessageBoxButtons.OK);
             }
             else
             {
-                if (auto.Motore)
+                int c = auto.Spegne();
+                if (c == 1)
                 {
-                    MessageBox.Show("Motore Acceso", "Avviso", MessageBoxButtons.OK);
+                    MessageBox.Show("Portare velocità a zero e marcia in folle prima di spegnere.", "Avviso", MessageBoxButtons.OK);
                 }
                 else
                 {
@@ -102,7 +103,7 @@ namespace ClasseAuto
         {
             if (auto.Motore)
             {
-                auto.MarciaPM(true);
+                auto.MarciaP();
                 marres.Text = auto.Marcia.ToString();
             }
         }
@@ -111,7 +112,7 @@ namespace ClasseAuto
         {
             if (auto.Motore)
             {
-                auto.MarciaPM(false);
+                auto.MarciaM();
                 marres.Text = auto.Marcia.ToString();
             }
         }

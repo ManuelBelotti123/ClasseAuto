@@ -10,9 +10,9 @@ namespace ClasseAuto
     internal class Auto
     {
         //attributi
-        private bool _motore;
-        private double _velocita;
-        private int _marcia;
+        protected bool _motore;
+        protected double _velocita;
+        protected int _marcia;
 
         //proprietà
         public bool Motore
@@ -56,28 +56,26 @@ namespace ClasseAuto
         }
 
         //metodi
-        public bool AccendeSpegne(bool a)
+        public void Accende()
         {
-            bool c = true;
-            if (a)
+            Motore = true;
+        }
+
+        public int Spegne()
+        {
+            int c = 0;
+            if (Velocita == 0 && Marcia == 0)
             {
-                Motore = true;
+                Motore = false;
             }
             else
             {
-                if (Velocita == 0 && Marcia == 0)
-                {
-                    Motore = false;
-                }
-                else
-                {
-                    c = false;
-                }
+                c = 1;
             }
             return c;
         }
 
-        public int Accelera(double v)
+        public virtual int Accelera(double v)
         {
             int c = 0;
             double vel = Velocita + v;
@@ -315,21 +313,19 @@ namespace ClasseAuto
             return c;
         }
 
-        public void MarciaPM(bool m)
+        public void MarciaP()
         {
-            if (m)
+            if (Marcia != 8)
             {
-                if (Marcia != 8)
-                {
-                    Marcia++;
-                }
+                Marcia++;
             }
-            else
+        }
+
+        public void MarciaM()
+        {
+            if (Marcia != 0)
             {
-                if (Marcia != 0)
-                {
-                    Marcia--;
-                }
+                Marcia--;
             }
         }
     }
