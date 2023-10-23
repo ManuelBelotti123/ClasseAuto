@@ -27,42 +27,78 @@ namespace ClasseAuto
 
         public AutoAut() : base()
         {
-            Giri = 0;
+            Giri = 1500;
         }
 
         //metodi
+        public override int Spegne()
+        {
+            int c = 0;
+            if (Velocita == 0)
+            {
+                Motore = false;
+            }
+            else
+            {
+                c = 1;
+            }
+            return c;
+        }
+
         public override int Accelera(double v)
         {
             int c = 0;
             Velocita += v;
-            Giri = 1500;
-            int dif = (int)Math.Round(500 * Velocita / 20);
-            int g = Giri + dif;
-            MessageBox.Show(g.ToString());
-            if (g < 1000)
+            int dif = (int)v * 25;
+            Giri += dif;
+            if (Giri <= 1000)
             {
                 Marcia--;
+                Giri = 1500;
             }
-            else if (g > 2000)
+            else if (Giri >= 2000)
             {
-                Marcia++;
+                if (Marcia < 8)
+                {
+                    Marcia++;
+                    Giri = 1500;
+                }
+                else
+                {
+                    Giri = 1500;
+                }
             }
             return c;
         }
         public override int Decelera(double v)
         {
             int c = 0;
-            Velocita -= v;
-            Giri = 1500;
-            int dif = (int)Math.Round(100 * Velocita / 20);
-            int g = Giri - dif;
-            if (g < 1000)
+            if (Velocita - v >= 0)
+            {
+                Velocita -= v;
+            }
+            else
+            {
+                c = 1;
+            }
+            int dif = (int)v * 20;
+            Giri -= dif;
+            if (Giri <= 1000)
             {
                 Marcia--;
+                Giri = 1500;
             }
-            else if (g > 2000)
+            else if (Giri >= 2000)
             {
-                Marcia++;
+                if (Marcia < 8)
+                {
+                    Marcia++;
+                    Giri = 1500;
+                }
+                else
+                {
+                    Giri = 1500;
+                }
             }
             return c;
         }

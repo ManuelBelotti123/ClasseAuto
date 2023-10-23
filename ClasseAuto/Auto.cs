@@ -61,7 +61,7 @@ namespace ClasseAuto
             Motore = true;
         }
 
-        public int Spegne()
+        public virtual int Spegne()
         {
             int c = 0;
             if (Velocita == 0 && Marcia == 0)

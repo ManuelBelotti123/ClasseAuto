@@ -32,21 +32,46 @@ namespace ClasseAuto
 
         private void motoreb_Click(object sender, EventArgs e)
         {
-            if (!auto.Motore)
+            if (!b)
             {
-                auto.Accende();
-                MessageBox.Show("Motore Acceso", "Avviso", MessageBoxButtons.OK);
-            }
-            else
-            {
-                int c = auto.Spegne();
-                if (c == 1)
+                if (!auto.Motore)
                 {
-                    MessageBox.Show("Portare velocità a zero e marcia in folle prima di spegnere.", "Avviso", MessageBoxButtons.OK);
+                    auto.Accende();
+                    MessageBox.Show("Motore Acceso", "Avviso", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    MessageBox.Show("Motore Spento", "Avviso", MessageBoxButtons.OK);
+                    int c = auto.Spegne();
+                    if (c == 1)
+                    {
+                        MessageBox.Show("Portare velocità a zero e marcia in folle prima di spegnere.", "Avviso", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Motore Spento", "Avviso", MessageBoxButtons.OK);
+                    }
+                }
+            }
+            else
+            {
+                if (!aut.Motore)
+                {
+                    aut.Accende();
+                    aut.Marcia = 1;
+                    MessageBox.Show("Motore Acceso", "Avviso", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    int c = aut.Spegne();
+                    if (c == 1)
+                    {
+                        MessageBox.Show("Portare velocità a zero prima di spegnere.", "Avviso", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        aut.Marcia = 0;
+                        MessageBox.Show("Motore Spento", "Avviso", MessageBoxButtons.OK);
+                    }
                 }
             }
         }
@@ -78,9 +103,12 @@ namespace ClasseAuto
             }
             else
             {
-                aut.Accelera(double.Parse(vel.Text));
-                marres.Text = aut.Marcia.ToString();
-                velres.Text = aut.Velocita.ToString();
+                if (aut.Motore)
+                {
+                    aut.Accelera(double.Parse(vel.Text));
+                    marres.Text = aut.Marcia.ToString();
+                    velres.Text = aut.Velocita.ToString();
+                }
             }
         }
 
@@ -115,9 +143,12 @@ namespace ClasseAuto
             }
             else
             {
-                aut.Decelera(double.Parse(vel.Text));
-                marres.Text = aut.Marcia.ToString();
-                velres.Text = aut.Velocita.ToString();
+                if (aut.Motore)
+                {
+                    aut.Decelera(double.Parse(vel.Text));
+                    marres.Text = aut.Marcia.ToString();
+                    velres.Text = aut.Velocita.ToString();
+                }
             }
         }
 
