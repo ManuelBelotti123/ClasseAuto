@@ -40,6 +40,9 @@
             this.manuale = new System.Windows.Forms.Button();
             this.automatico = new System.Windows.Forms.Button();
             this.girires = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // motoreb
@@ -110,7 +113,7 @@
             // 
             // velres
             // 
-            this.velres.Location = new System.Drawing.Point(326, 230);
+            this.velres.Location = new System.Drawing.Point(326, 241);
             this.velres.Multiline = true;
             this.velres.Name = "velres";
             this.velres.Size = new System.Drawing.Size(129, 59);
@@ -146,17 +149,47 @@
             // 
             // girires
             // 
-            this.girires.Location = new System.Drawing.Point(326, 309);
+            this.girires.Location = new System.Drawing.Point(326, 321);
             this.girires.Multiline = true;
             this.girires.Name = "girires";
             this.girires.Size = new System.Drawing.Size(129, 59);
             this.girires.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(261, 195);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Accelerazione";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(275, 244);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Velocita";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(247, 324);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Numero di Giri";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.girires);
             this.Controls.Add(this.automatico);
             this.Controls.Add(this.manuale);
@@ -191,6 +224,9 @@
         private System.Windows.Forms.Button manuale;
         private System.Windows.Forms.Button automatico;
         private System.Windows.Forms.TextBox girires;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

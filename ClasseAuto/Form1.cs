@@ -18,12 +18,11 @@ namespace ClasseAuto
         public Form1()
         {
             InitializeComponent();
-            auto = new Auto();
-            aut = new AutoAut();
             b = false;
             velres.Text = "0";
             marres.Text = "0";
             girires.Visible = false;
+            label4.Visible = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -187,9 +186,11 @@ namespace ClasseAuto
         private void manuale_Click(object sender, EventArgs e)
         {
             b = false;
+            auto = new Auto();
             aummarcia.Visible = true;
             scalamar.Visible = true;
             girires.Visible = false;
+            label4.Visible = false;
             marres.Text = auto.Marcia.ToString();
             velres.Text = auto.Velocita.ToString();
         }
@@ -197,12 +198,14 @@ namespace ClasseAuto
         private void automatico_Click(object sender, EventArgs e)
         {
             b = true;
+            aut = new AutoAut();
             aummarcia.Visible = false;
             scalamar.Visible = false;
             girires.Visible = true;
+            label4.Visible = true;
             marres.Text = aut.Marcia.ToString();
             velres.Text = aut.Velocita.ToString();
             girires.Text = aut.Giri.ToString();
         }
     }
-}
+}   
