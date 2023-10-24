@@ -39,6 +39,7 @@
             this.marres = new System.Windows.Forms.TextBox();
             this.manuale = new System.Windows.Forms.Button();
             this.automatico = new System.Windows.Forms.Button();
+            this.girires = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // motoreb
@@ -143,11 +144,20 @@
             this.automatico.UseVisualStyleBackColor = true;
             this.automatico.Click += new System.EventHandler(this.automatico_Click);
             // 
+            // girires
+            // 
+            this.girires.Location = new System.Drawing.Point(326, 309);
+            this.girires.Multiline = true;
+            this.girires.Name = "girires";
+            this.girires.Size = new System.Drawing.Size(129, 59);
+            this.girires.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.girires);
             this.Controls.Add(this.automatico);
             this.Controls.Add(this.manuale);
             this.Controls.Add(this.marres);
@@ -180,6 +190,7 @@
         private System.Windows.Forms.TextBox marres;
         private System.Windows.Forms.Button manuale;
         private System.Windows.Forms.Button automatico;
+        private System.Windows.Forms.TextBox girires;
     }
 }
 

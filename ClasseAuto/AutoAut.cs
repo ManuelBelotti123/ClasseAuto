@@ -48,15 +48,13 @@ namespace ClasseAuto
         public override int Accelera(double v)
         {
             int c = 0;
-            Velocita += v;
+            if (Marcia <= 8)
+            {
+                Velocita += v;
+            }
             int dif = (int)v * 25;
             Giri += dif;
-            if (Giri <= 1000)
-            {
-                Marcia--;
-                Giri = 1500;
-            }
-            else if (Giri >= 2000)
+            if (Giri >= 2000)
             {
                 if (Marcia < 8)
                 {
@@ -65,7 +63,7 @@ namespace ClasseAuto
                 }
                 else
                 {
-                    Giri = 1500;
+                    c = 1;
                 }
             }
             return c;
@@ -73,32 +71,21 @@ namespace ClasseAuto
         public override int Decelera(double v)
         {
             int c = 0;
-            if (Velocita - v >= 0)
+            if (Velocita - v >= 0 && Marcia <= 8)
             {
                 Velocita -= v;
             }
             else
             {
-                c = 1;
+                c = 2;
+                return c;
             }
-            int dif = (int)v * 20;
+            int dif = (int)v * 25;
             Giri -= dif;
             if (Giri <= 1000)
             {
                 Marcia--;
                 Giri = 1500;
-            }
-            else if (Giri >= 2000)
-            {
-                if (Marcia < 8)
-                {
-                    Marcia++;
-                    Giri = 1500;
-                }
-                else
-                {
-                    Giri = 1500;
-                }
             }
             return c;
         }

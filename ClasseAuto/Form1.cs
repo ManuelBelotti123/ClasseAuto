@@ -23,6 +23,7 @@ namespace ClasseAuto
             b = false;
             velres.Text = "0";
             marres.Text = "0";
+            girires.Visible = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -105,9 +106,17 @@ namespace ClasseAuto
             {
                 if (aut.Motore)
                 {
-                    aut.Accelera(double.Parse(vel.Text));
-                    marres.Text = aut.Marcia.ToString();
-                    velres.Text = aut.Velocita.ToString();
+                    int c = aut.Accelera(double.Parse(vel.Text));
+                    if (c == 1)
+                    {
+                        MessageBox.Show("Limite di marcia raggiunto", "Avviso");
+                    }
+                    else
+                    {
+                        marres.Text = aut.Marcia.ToString();
+                        velres.Text = aut.Velocita.ToString();
+                        girires.Text = aut.Giri.ToString();
+                    }
                 }
             }
         }
@@ -145,9 +154,14 @@ namespace ClasseAuto
             {
                 if (aut.Motore)
                 {
-                    aut.Decelera(double.Parse(vel.Text));
+                    int c = aut.Decelera(double.Parse(vel.Text));
+                    if (c == 2)
+                    {
+                        MessageBox.Show("Valore impossibile di velocita", "Avviso");
+                    }
                     marres.Text = aut.Marcia.ToString();
                     velres.Text = aut.Velocita.ToString();
+                    girires.Text = aut.Giri.ToString();
                 }
             }
         }
@@ -175,6 +189,7 @@ namespace ClasseAuto
             b = false;
             aummarcia.Visible = true;
             scalamar.Visible = true;
+            girires.Visible = false;
             marres.Text = auto.Marcia.ToString();
             velres.Text = auto.Velocita.ToString();
         }
@@ -184,8 +199,10 @@ namespace ClasseAuto
             b = true;
             aummarcia.Visible = false;
             scalamar.Visible = false;
+            girires.Visible = true;
             marres.Text = aut.Marcia.ToString();
             velres.Text = aut.Velocita.ToString();
+            girires.Text = aut.Giri.ToString();
         }
     }
 }
