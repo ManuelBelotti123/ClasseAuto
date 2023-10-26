@@ -55,6 +55,14 @@ namespace ClasseAuto
             Marcia = 0;
         }
 
+        //costruttore di copia
+        public Auto(Auto autop)
+        {
+            Motore = autop.Motore;
+            Velocita = autop.Velocita;
+            Marcia = autop.Marcia;
+        }
+
         //metodi
         public void Accende()
         {
