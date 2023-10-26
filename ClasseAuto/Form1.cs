@@ -186,7 +186,7 @@ namespace ClasseAuto
         private void manuale_Click(object sender, EventArgs e)
         {
             b = false;
-            auto = new Auto(false, 20, 1);
+            auto = new Auto();
             aummarcia.Visible = true;
             scalamar.Visible = true;
             girires.Visible = false;
@@ -198,7 +198,7 @@ namespace ClasseAuto
         private void automatico_Click(object sender, EventArgs e)
         {
             b = true;
-            aut = new AutoAut(false, 40, 2, 1000);
+            aut = new AutoAut();
             aummarcia.Visible = false;
             scalamar.Visible = false;
             girires.Visible = true;

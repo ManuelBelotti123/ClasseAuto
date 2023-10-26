@@ -30,12 +30,6 @@ namespace ClasseAuto
             Giri = 1500;
         }
 
-        //costruttore di copia
-        public AutoAut(AutoAut autop) : base(autop)
-        {
-            Giri = autop.Giri;
-        }
-
         //metodi
         public override int Spegne()
         {
